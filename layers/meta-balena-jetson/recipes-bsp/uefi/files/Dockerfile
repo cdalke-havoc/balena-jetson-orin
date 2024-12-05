@@ -2,7 +2,7 @@ FROM ghcr.io/tianocore/containers/ubuntu-22-dev:latest
 
 ARG DEVICE_TYPE
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y git vim && \
     mkdir build && cd build && \
@@ -25,6 +25,8 @@ COPY ./0001-Seeed-J4012-Integrate-with-balenaOS-on-L4T-36.3_patch.txt /build/nvi
 COPY ./0001-Seeed-J3010-Integrate-with-balenaOS-on-L4T-36.3_patch.txt /build/nvidia-uefi/edk2-nvidia/0001-Seeed-J3010-Integrate-with-balenaOS-on-L4T-36.3.patch
 COPY ./0001-AGX-Orin-64GB-Integrate-with-balenaOS-on-L4T-36.3_patch.txt /build/nvidia-uefi/edk2-nvidia/0001-AGX-Orin-64GB-Integrate-with-balenaOS-on-L4T-36.3.patch
 COPY ./0001-edk2-nvidia-Remove-pva-fw-from-required-list_patch.txt /build/nvidia-uefi/edk2-nvidia/0001-edk2-nvidia-Remove-pva-fw-from-required-list.patch
+COPY ./0001-ForeCR-4g-integrate-with-balenaOS-on-L4T-36.3_patch.txt /build/nvidia-uefi/edk2-nvidia/0001-ForeCR-4g-integrate-with-balenaOS-on-L4T-36.3.patch
+COPY ./0001-ForeCR-8g-integrate-with-balenaOS-on-L4T-36.3_patch.txt /build/nvidia-uefi/edk2-nvidia/0001-ForeCR-8g-integrate-with-balenaOS-on-L4T-36.3.patch
 
 # See https://forums.developer.nvidia.com/t/jetson-orin-nano-ota-35-5-0-36-3-failed-to-boot-after-ota-upgrade-from-35-5-0-to-36-3/296205/16
 COPY ./0001-StandaloneMmOptee-Don-t-assert-if-var-store-integrit_patch.txt /build/nvidia-uefi/edk2-nvidia/0001-StandaloneMmOptee-Don-t-assert-if-var-store-integrit.patch

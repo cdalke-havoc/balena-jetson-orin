@@ -12,9 +12,9 @@
 #
 #  Orin NX 16GB:         Low = 10W (1),    Mid = 25W (3),   High = MAXN (0) - [jetson-orin-nx-xavier-nx-devkit, jetson-orin-nx-seeed-j4012]
 #
-#  Orin Nano 8GB (SD):   Low = 7W  (1),    Mid = 15W (0),   High = 15W  (0) - [jetson-orin-nano-devkit-nvme]
+#  Orin Nano 8GB (SD):   Low = 7W  (1),    Mid = 15W (0),   High = 15W  (0) - [jetson-orin-nano-devkit-nvme, jetson-orin-nano-8gb-forecr]
 #
-#  Orin Nano 4GB:        Low = 7W_CPU (2), Mid = 7W_AI (1), High = 10W (0)  - [jetson-orin-nano-seeed-j3010]
+#  Orin Nano 4GB:        Low = 7W_CPU (2), Mid = 7W_AI (1), High = 10W (0)  - [jetson-orin-nano-seeed-j3010, jetson-orin-nano-4gb-forecr]
 
 
 set -e
@@ -90,10 +90,10 @@ else
         jetson-agx-orin-devkit|jetson-agx-orin-devkit-64gb|jetson-agx-orin-industrial|jetson-orin-nx-xavier-nx-devkit|jetson-orin-nx-seeed-j4012)
             power_modes=(["low"]="1" ["mid"]="3" ["high"]="0")
             ;;
-        jetson-orin-nano-devkit-nvme)
+        jetson-orin-nano-devkit-nvme|jetson-orin-nano-8gb-forecr)
             power_modes=(["low"]="2" ["mid"]="0" ["high"]="0")
             ;;
-        jetson-orin-nano-seeed-j3010)
+        jetson-orin-nano-seeed-j3010|jetson-orin-nano-4gb-forecr)
             power_modes=(["low"]="2" ["mid"]="1" ["high"]="0")
             ;;
         *)
