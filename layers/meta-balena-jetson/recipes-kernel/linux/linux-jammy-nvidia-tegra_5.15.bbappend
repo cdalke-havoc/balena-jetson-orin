@@ -93,6 +93,15 @@ BALENA_CONFIGS[binder] = " \
     CONFIG_ANDROID_BINDER_IPC_SELFTEST=y \
 "
 
+BALENA_CONFIGS:append:jetson-orin-nano-8g-devkit = " binder"
+BALENA_CONFIGS[binder] = " \
+    CONFIG_ANDROID=y \
+    CONFIG_ASHMEM=y \
+    CONFIG_ANDROID_BINDER_IPC=y \
+    CONFIG_ANDROID_BINDER_DEVICES=\"binder,hwbinder,vndbinder\" \
+    CONFIG_ANDROID_BINDER_IPC_SELFTEST=y \
+"
+
 BALENA_CONFIGS:append = " mtd nvme"
 BALENA_CONFIGS[mtd] = " \
     CONFIG_MTD_BLOCK=m \

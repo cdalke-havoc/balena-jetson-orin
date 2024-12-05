@@ -29,6 +29,8 @@ SRC_URI = " \
     file://0001-AGX-Orin-64GB-Integrate-with-balenaOS-on-L4T-36.3_patch.txt \
     file://0001-edk2-nvidia-Remove-pva-fw-from-required-list_patch.txt \
     file://0001-StandaloneMmOptee-Don-t-assert-if-var-store-integrit_patch.txt \
+    file://0001-ForeCR-4g-integrate-with-balenaOS-on-L4T-36.3_patch.txt \
+    file://0001-ForeCR-8g-integrate-with-balenaOS-on-L4T-36.3_patch.txt \
 "
 
 inherit deploy
@@ -48,8 +50,8 @@ do_compile () {
 
     IMAGETAG="${PN}:$(date +%s)-${MACHINE}"
 
-    DOCKER_API_VERSION=1.22 docker build --tag ${IMAGETAG} ${B}/ --build-arg "DEVICE_TYPE=${MACHINE}"
-    DOCKER_API_VERSION=1.22 docker run --rm -v ${WORKDIR}/out:/out -v "${HOME}":"${HOME}" -e EDK2_DOCKER_USER_HOME="${HOME}" -e DEVICE_TYPE="${MACHINE}" ${IMAGETAG} su /bin/bash -c "/build/build.sh && cp /build/nvidia-uefi/images/uefi_Jetson_DEBUG.bin /out/uefi_jetson.bin && cp /build/nvidia-uefi/images/BOOTAA64_Jetson_DEBUG.efi /out/BOOTAA64.efi"
+    DOCKER_API_VERSION=1.24 docker build --tag ${IMAGETAG} ${B}/ --build-arg "DEVICE_TYPE=${MACHINE}"
+    DOCKER_API_VERSION=1.24 docker run --rm -v ${WORKDIR}/out:/out -v "${HOME}":"${HOME}" -e EDK2_DOCKER_USER_HOME="${HOME}" -e DEVICE_TYPE="${MACHINE}" ${IMAGETAG} su /bin/bash -c "/build/build.sh && cp /build/nvidia-uefi/images/uefi_Jetson_DEBUG.bin /out/uefi_jetson.bin && cp /build/nvidia-uefi/images/BOOTAA64_Jetson_DEBUG.efi /out/BOOTAA64.efi"
 }
 
 do_compile[network] = "1"
