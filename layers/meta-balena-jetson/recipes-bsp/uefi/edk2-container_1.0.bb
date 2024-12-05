@@ -31,6 +31,7 @@ SRC_URI = " \
     file://0001-StandaloneMmOptee-Don-t-assert-if-var-store-integrit_patch.txt \
     file://0001-ForeCR-4g-integrate-with-balenaOS-on-L4T-36.3_patch.txt \
     file://0001-ForeCR-8g-integrate-with-balenaOS-on-L4T-36.3_patch.txt \
+    file://0001-TegraPlatformBootManager-TegraPlatformBootManagerDxe_patch.txt \
 "
 
 inherit deploy
